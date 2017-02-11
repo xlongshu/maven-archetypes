@@ -1,0 +1,2 @@
+mvn archetype:crawl
+pause
