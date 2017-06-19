@@ -9,6 +9,7 @@
             <directory></directory>
             <includes>
                 <include>*</include>
+                <include>**/.mvn/**</include>
             </includes>
         </fileSet>
 
