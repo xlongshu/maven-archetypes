@@ -1,0 +1,25 @@
+简述
+
+maven archetype  是一个原型构建框架，这样可以把一些重复性的配置代码放到archetype里，不用每次都从头去搭建项目。下面总结一下创建archetype的几个步骤
+
+内容
+1
+mvn archetype:genetate 创建一个标准的maven工程
+添加自己想要重复利用的元素，如一些配置，通用代码等。
+
+2
+在工程下执行mvn archetype:create-from-project
+此时会生成 target/generated-sources/archetype
+进入archetype目录下，执行 mvn install
+
+3
+使用 mvn archetype:crawl 命令，
+它会在.m2\repository目录下生成一个archetype-catalog.xml文件
+将archetype-catalog.xml移到.m2目录
+
+4
+此时 mvn archetype:genetate 时就可以选择自己的archetype进行创建了
+当然，本地的 archetypeCatolog一般为local，
+所以可以这样：
+mvn archetype:generate -DarchetypeCatalog=local 
+再选择catalog下具体的archetype

@@ -1,2 +1,2 @@
-CALL mvn package -DskipTests
+CALL mvnw package -DskipTests %*
 pause

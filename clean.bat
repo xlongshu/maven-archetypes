@@ -1,2 +1,2 @@
-CALL mvn clean
+CALL mvnw clean
 pause

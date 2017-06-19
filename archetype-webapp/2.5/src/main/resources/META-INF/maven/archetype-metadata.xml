@@ -5,12 +5,13 @@
     xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
     id="webapp" name="webapp">
     <fileSets>
-        <fileSet filtered="true" packaged="false">
+        <fileSet filtered="false" packaged="false">
             <directory></directory>
             <includes>
                 <include>*</include>
             </includes>
         </fileSet>
+
         <fileSet filtered="true" packaged="true">
             <directory>src/main/java</directory>
             <includes>
@@ -32,18 +33,6 @@
         </fileSet>
         <fileSet filtered="true">
             <directory>src/main/webapp/WEB-INF</directory>
-            <includes>
-                <include>**/*</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true" packaged="true">
-            <directory>src/test/java</directory>
-            <includes>
-                <include>**/*.java</include>
-            </includes>
-        </fileSet>
-        <fileSet filtered="true">
-            <directory>src/test/resources</directory>
             <includes>
                 <include>**/*</include>
             </includes>

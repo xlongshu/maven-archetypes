@@ -1,2 +1,2 @@
-CALL mvn install
+CALL mvnw install
 pause

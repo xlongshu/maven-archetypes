@@ -1,1 +1,1 @@
-mvn package -DskipTests
+./mvnw clean package -DskipTests $*
