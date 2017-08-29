@@ -99,13 +99,13 @@
 
                     <webAppConfig>
                         <contextPath>/${project.build.finalName}</contextPath>
-                        <defaultsDescriptor>${basedir}\webdefault.xml</defaultsDescriptor>
+                        <defaultsDescriptor>${basedir}/webdefault.xml</defaultsDescriptor>
 
                         <sessionHandler implementation="org.eclipse.jetty.server.session.SessionHandler">
                             <sessionManager implementation="org.eclipse.jetty.server.session.HashSessionManager">
                                 <idleSavePeriod>4</idleSavePeriod>
                                 <SavePeriod>8</SavePeriod>
-                                <storeDirectory>${basedir}/target/session</storeDirectory>
+                                <storeDirectory>${project.build.directory}/session</storeDirectory>
                             </sessionManager>
                         </sessionHandler>
                     </webAppConfig>
@@ -125,6 +125,7 @@
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>
+            <layout>default</layout>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
         <repository>

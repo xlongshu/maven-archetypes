@@ -85,6 +85,7 @@
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>
+            <layout>default</layout>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
         <repository>

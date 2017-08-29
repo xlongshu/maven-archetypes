@@ -101,10 +101,10 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
-                        <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.0.0</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
@@ -124,8 +124,20 @@
 
                     <webApp>
                         <contextPath>/${project.build.finalName}</contextPath>
-                        <defaultsDescriptor>webdefault.xml</defaultsDescriptor>
+                        <defaultsDescriptor>${basedir}/webdefault.xml</defaultsDescriptor>
+
+                        <sessionHandler implementation="org.eclipse.jetty.server.session.SessionHandler">
+                            <sessionManager implementation="org.eclipse.jetty.server.session.HashSessionManager">
+                                <idleSavePeriod>4</idleSavePeriod>
+                                <SavePeriod>8</SavePeriod>
+                                <storeDirectory>${project.build.directory}/session</storeDirectory>
+                            </sessionManager>
+                        </sessionHandler>
                     </webApp>
+
+                    <httpConnector>
+                        <port>8080</port>
+                    </httpConnector>
                 </configuration>
             </plugin>
         </plugins>
@@ -135,6 +147,7 @@
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>
+            <layout>default</layout>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
         </repository>
         <repository>
