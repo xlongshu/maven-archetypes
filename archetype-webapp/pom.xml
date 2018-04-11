@@ -3,20 +3,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>longshu</groupId>
-        <artifactId>maven-archetypes</artifactId>
+        <groupId>longshu.maven.archetypes</groupId>
+        <artifactId>archetype-bundles</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>archetype-webapp</artifactId>
+    <artifactId>archetype-webapp-bundles</artifactId>
     <packaging>pom</packaging>
-    <name>archetype-webapp</name>
-    <description>maven-archetype-webapp</description>
+    <description>archetype-webapp</description>
 
     <modules>
-        <module>2.5</module>
-        <module>3.0</module>
-        <module>3.1</module>
+        <module>2.x</module>
+        <module>3.x</module>
     </modules>
 
 </project>

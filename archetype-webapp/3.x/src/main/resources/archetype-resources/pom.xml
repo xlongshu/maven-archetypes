@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>longshu.maven.starter</groupId>
+        <artifactId>javaweb-starter</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <packaging>war</packaging>
+    <version>${version}</version>
+    <name>${artifactId} Maven Webapp</name>
+
+    <properties>
+        <jdk.version>1.7</jdk.version>
+        <skipTests>true</skipTests>
+
+        <!-- servlet/jsp/EL (3.0/2.2/2.2),(3.1/2.3/3.0) -->
+        <javaee-api.version>7.0</javaee-api.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
+        <jsp-api.version>2.3.1</jsp-api.version>
+        <el-api.version>3.0.0</el-api.version>
+        <jetty.version>9.2.20.v20161216</jetty.version>
+        <jetty.port>8080</jetty.port>
+
+        <log.level>INFO</log.level>
+        <log.path>/data/logs/</log.path>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <!-- <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency> -->
+        <!-- <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency> -->
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+
+                <configuration>
+                    <stopKey>stop</stopKey>
+                    <stopPort>8888</stopPort>
+                    <scanIntervalSeconds>8</scanIntervalSeconds>
+                    <webAppSourceDirectory>${webAppSourceDir}</webAppSourceDirectory>
+                    <war>${project.basedir}/target/${project.artifactId}</war>
+
+                    <webAppConfig>
+                        <contextPath>/${project.artifactId}</contextPath>
+                        <defaultsDescriptor>${webAppSourceDir}/WEB-INF/webdefault.xml</defaultsDescriptor>
+
+                        <sessionHandler implementation="org.eclipse.jetty.server.session.SessionHandler">
+                            <sessionManager implementation="org.eclipse.jetty.server.session.HashSessionManager">
+                                <idleSavePeriod>4</idleSavePeriod>
+                                <SavePeriod>8</SavePeriod>
+                                <storeDirectory>${project.build.directory}/session</storeDirectory>
+                            </sessionManager>
+                        </sessionHandler>
+                    </webAppConfig>
+
+                    <httpConnector>
+                        <port>${jetty.port}</port>
+                    </httpConnector>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
