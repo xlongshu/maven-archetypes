@@ -1,10 +1,10 @@
 
 ### Builder
 target/
-.gradle/
 build/
 out/
 gen/
+.gradle/
 local.properties
 
 ### IntelliJ
@@ -19,13 +19,10 @@ local.properties
 .classpath
 .mymetadata
 
-# Package Files #
+### Package Files
 *.jar
 *.war
 *.ear
-*.zip
-*.tar.gz
-*.rar
 
 ### Other
 .DS_Store

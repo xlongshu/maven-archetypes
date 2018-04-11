@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<configuration
+        xmlns="http://ch.qos.logback/xml/ns/logback"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback http://ch.qos.logback/xml/ns/logback/logback.xsd">
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- %c.%M\(%F:%L\), %caller{1}%msg%n -->
+            <pattern>[%highlight(%-5level)][%d{HH:mm:ss.SSS}] [%thread]%n%C.%M\(%F:%L\)%n%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/${artifactId}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%-5level][%d{HH:mm:ss.SSS}] [%thread] %C.%M\(%F:%L\)%n%msg%n%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <!-- 过滤掉 INFO 级以下别的日志, 线上建议 WARN 以上 -->
+            <level>INFO</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 日志路径, 根据实际情况修改 -->
+            <fileNamePattern>${log.path}/${artifactId}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 最多保留15天 -->
+            <maxHistory>15</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <!-- <appender-ref ref="FILE"/> -->
+    </root>
+
+    <logger name="${groupId}" level="${log.level}"/>
+
+</configuration>

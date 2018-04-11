@@ -1,1 +1,1 @@
-mvn archetype:generate -DarchetypeCatalog=local %*
+CALL ../mvnw archetype:generate -DarchetypeCatalog=local %*

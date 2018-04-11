@@ -1,2 +1,0 @@
-CALL mvnw clean
-pause

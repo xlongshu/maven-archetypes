@@ -1,2 +1,0 @@
-CALL mvnw install
-pause

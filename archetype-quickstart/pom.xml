@@ -4,16 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>maven-archetype-bundles</artifactId>
-        <groupId>org.apache.maven.archetypes</groupId>
-        <version>4</version>
+        <groupId>longshu.maven.archetypes</groupId>
+        <artifactId>archetype-bundles</artifactId>
+        <version>1.0.0</version>
     </parent>
 
-    <groupId>org.apache.maven.archetypes</groupId>
-    <artifactId>maven-archetype-quickstart</artifactId>
-    <version>1.2</version>
+    <artifactId>archetype-quickstart</artifactId>
     <packaging>maven-archetype</packaging>
-    <name>Maven Quickstart Archetype</name>
-    <description>quickstart</description>
+    <description>Java Quickstart</description>
 
 </project>

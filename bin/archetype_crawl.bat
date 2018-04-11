@@ -1,2 +1,2 @@
-mvn archetype:crawl
+CALL ../mvnw archetype:crawl
 pause

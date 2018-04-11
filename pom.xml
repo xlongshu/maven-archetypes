@@ -1,40 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
-    <groupId>longshu</groupId>
-    <artifactId>maven-archetypes</artifactId>
+
+    <parent>
+        <artifactId>maven-archetype-bundles</artifactId>
+        <groupId>org.apache.maven.archetypes</groupId>
+        <version>4</version>
+    </parent>
+
+    <groupId>longshu.maven.archetypes</groupId>
+    <artifactId>archetype-bundles</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>maven-archetypes</name>
-    <description>org.apache.maven.archetypes</description>
+    <description>maven-archetypes</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-archetype-plugin.version>3.0.1</maven-archetype-plugin.version>
     </properties>
 
     <modules>
-        <module>maven-archetype-quickstart</module>
+        <module>archetype-quickstart</module>
         <module>archetype-webapp</module>
-  </modules>
+    </modules>
 
     <build>
-        <plugins>
-            <plugin>
-                <inherited>true</inherited>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-        </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.archetype</groupId>
+                <artifactId>archetype-packaging</artifactId>
+                <version>${maven-archetype-plugin.version}</version>
+            </extension>
+        </extensions>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>${maven-archetype-plugin.version}</version>
+                    <configuration>
+                        <!-- <skip>true</skip> -->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
