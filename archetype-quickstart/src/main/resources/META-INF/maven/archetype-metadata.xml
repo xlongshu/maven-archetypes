@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor
+<archetype-descriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
-    id="java-quickstart" name="java-quickstart">
+    name="java-quickstart">
     <fileSets>
+        <fileSet filtered="true">
+            <directory></directory>
+            <includes>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
         <fileSet filtered="false" packaged="false">
             <directory></directory>
             <includes>

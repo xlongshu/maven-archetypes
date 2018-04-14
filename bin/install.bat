@@ -1,2 +1,2 @@
-CALL ../mvnw install -f ../
+CALL ../mvnw clean install -f ../
 pause

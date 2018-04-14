@@ -1,8 +1,30 @@
-*.class
 
-# Package Files #
+### Builder
+target/
+build/
+out/
+gen/
+.gradle/
+local.properties
+
+### IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+### Eclipse
+.settings/
+.project
+.classpath
+.mymetadata
+
+### Package Files
 *.jar
+*.war
 *.ear
 
-# add
-target
+### Other
+.DS_Store
+*.log
+*.bak

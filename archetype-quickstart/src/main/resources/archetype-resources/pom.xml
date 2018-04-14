@@ -6,7 +6,7 @@
     <parent>
         <groupId>longshu.maven.starter</groupId>
         <artifactId>java-starter</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>${groupId}</groupId>
@@ -18,8 +18,8 @@
     <properties>
         <jdk.version>1.7</jdk.version>
 
-        <log.level>INFO</log.level>
-        <log.path>/data/logs/</log.path>
+        <log.level>DEBUG</log.level>
+        <log.path>/data/logs</log.path>
     </properties>
 
     <dependencies>
@@ -42,14 +42,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
