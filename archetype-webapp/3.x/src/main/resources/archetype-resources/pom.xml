@@ -6,7 +6,7 @@
     <parent>
         <groupId>longshu.maven.starter</groupId>
         <artifactId>javaweb-starter</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>${groupId}</groupId>
@@ -53,6 +53,7 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
+        <plugins>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
