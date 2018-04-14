@@ -20,7 +20,7 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/${artifactId}.log</file>
+        <file>@log.path@/${groupId}/${artifactId}.log</file>
         <append>true</append>
         <encoder>
             <pattern>[%-5level][%d{HH:mm:ss.SSS}] [%thread] %C.%M\(%F:%L\)%n%msg%n%n</pattern>
@@ -31,9 +31,9 @@
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志路径, 根据实际情况修改 -->
-            <fileNamePattern>${log.path}/${artifactId}-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 最多保留15天 -->
-            <maxHistory>15</maxHistory>
+            <fileNamePattern>@log.path@/${groupId}/${artifactId}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 最多保留30天 -->
+            <maxHistory>30</maxHistory>
         </rollingPolicy>
     </appender>
 
@@ -42,6 +42,9 @@
         <!-- <appender-ref ref="FILE"/> -->
     </root>
 
-    <logger name="${groupId}" level="${log.level}"/>
+    <logger name="org.apache" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+
+    <logger name="${groupId}.${artifactId}" level="@log.level@"/>
 
 </configuration>
