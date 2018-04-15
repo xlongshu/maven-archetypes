@@ -21,6 +21,7 @@
 
     <modules>
         <module>archetype-quickstart</module>
+        <module>archetype-spring-boot</module>
         <module>archetype-webapp</module>
     </modules>
 

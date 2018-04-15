@@ -25,22 +25,14 @@
         <jsp-api.version>2.3.1</jsp-api.version>
         <el-api.version>3.0.0</el-api.version>
         <jetty.version>9.2.20.v20161216</jetty.version>
-        <jetty.port>8080</jetty.port>
 
+        <server.port>8080</server.port>
         <log.level>INFO</log.level>
         <log.path>/data/logs/</log.path>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
+        <!-- Logger Impl -->
         <!-- <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -49,6 +41,10 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency> -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -67,20 +63,12 @@
                     <war>${project.basedir}/target/${project.artifactId}</war>
 
                     <webAppConfig>
-                        <contextPath>/${project.artifactId}</contextPath>
+                        <contextPath>/</contextPath>
                         <defaultsDescriptor>${webAppSourceDir}/WEB-INF/webdefault.xml</defaultsDescriptor>
-
-                        <sessionHandler implementation="org.eclipse.jetty.server.session.SessionHandler">
-                            <sessionManager implementation="org.eclipse.jetty.server.session.HashSessionManager">
-                                <idleSavePeriod>4</idleSavePeriod>
-                                <SavePeriod>8</SavePeriod>
-                                <storeDirectory>${project.build.directory}/session</storeDirectory>
-                            </sessionManager>
-                        </sessionHandler>
                     </webAppConfig>
 
                     <httpConnector>
-                        <port>${jetty.port}</port>
+                        <port>${server.port}</port>
                     </httpConnector>
                 </configuration>
             </plugin>

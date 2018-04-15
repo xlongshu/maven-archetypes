@@ -1,0 +1,42 @@
+# server
+server:
+  port: @server.port@
+
+# logging
+logging:
+  level:
+    root: info
+
+spring:
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force-request: true
+      force-response: true
+  mvc:
+    locale: zh_CN
+    date-format: yyyy-MM-dd
+    throw-exception-if-no-handler-found: true
+    favicon:
+      enabled: false
+  resources:
+    chain:
+      cache: false
+  jackson:
+    locale: zh_CN
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+    serialization:
+      write-null-map-values: false
+
+# info
+info:
+  app:
+    name: @project.name@
+    version: @project.version@
+  build:
+    artifact: @project.artifactId@
+    name: @project.groupId@-@project.artifactId@
+    description: @project.description@
+    version: @project.version@
