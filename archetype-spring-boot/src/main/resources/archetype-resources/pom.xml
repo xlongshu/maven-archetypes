@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>longshu.maven.starter</groupId>
+        <groupId>com.github.xlongshu.maven</groupId>
         <artifactId>spring-boot-starter</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <groupId>${groupId}</groupId>

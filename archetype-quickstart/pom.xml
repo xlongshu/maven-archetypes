@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>longshu.maven.archetypes</groupId>
+        <groupId>com.github.xlongshu.maven</groupId>
         <artifactId>archetype-bundles</artifactId>
         <version>1.0.0</version>
     </parent>

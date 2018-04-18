@@ -2,26 +2,52 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>maven-archetype-bundles</artifactId>
-        <groupId>org.apache.maven.archetypes</groupId>
-        <version>4</version>
-    </parent>
-
-    <groupId>longshu.maven.archetypes</groupId>
+    <groupId>com.github.xlongshu.maven</groupId>
     <artifactId>archetype-bundles</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <description>maven-archetypes</description>
+    <url>https://github.com/xlongshu/maven-archetypes</url>
+
+    <developers>
+        <developer>
+            <name>longshu</name>
+            <email>xlongshu@163.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>git@github.com:xlongshu/maven-archetypes.git</url>
+        <connection>scm:git@github.com:xlongshu/maven-archetypes.git</connection>
+        <developerConnection>scm:git@github.com:xlongshu/maven-archetypes.git</developerConnection>
+    </scm>
+
+    <issueManagement>
+        <system>Github Issue</system>
+        <url>https://github.com/xlongshu/maven-archetypes/issues</url>
+    </issueManagement>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven-archetype-plugin.version>3.0.1</maven-archetype-plugin.version>
+        <!-- Plugin versions -->
+        <maven-archetype-plugin.version>2.4</maven-archetype-plugin.version>
+        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
     </properties>
 
     <modules>
         <module>archetype-quickstart</module>
         <module>archetype-spring-boot</module>
+        <module>archetype-webapp-2x</module>
         <module>archetype-webapp</module>
     </modules>
 
@@ -37,6 +63,11 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-archetype-plugin</artifactId>
                     <version>${maven-archetype-plugin.version}</version>
                     <configuration>
@@ -45,6 +76,51 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <!-- Source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Gpg Signature -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${maven-gpg-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>longshu.maven.starter</groupId>
+        <groupId>com.github.xlongshu.maven</groupId>
         <artifactId>javaweb-starter</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
 
     <groupId>${groupId}</groupId>
@@ -27,7 +27,7 @@
         <jetty.version>9.2.20.v20161216</jetty.version>
 
         <server.port>8080</server.port>
-        <log.level>INFO</log.level>
+        <log.level>DEBUG</log.level>
         <log.path>/data/logs/</log.path>
     </properties>
 
