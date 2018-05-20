@@ -17,24 +17,25 @@
         <encoder>
             <!-- %c.%M\(%F:%L\), %caller{1}%msg%n -->
             <pattern>[%highlight(%-5level)][%d{HH:mm:ss.SSS}] [%thread]%n%C.%M\(%F:%L\)%n%msg%n</pattern>
+            <!--<charset>UTF-8</charset>-->
         </encoder>
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>@log.path@/${groupId}/${artifactId}.log</file>
         <append>true</append>
+        <file>@log.path@/@project.groupId@/@project.artifactId@.log</file>
         <encoder>
             <pattern>[%-5level][%d{HH:mm:ss.SSS}] [%thread] %C.%M\(%F:%L\)%n%msg%n%n</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <!-- 过滤掉 INFO 级以下别的日志, 线上建议 WARN 以上 -->
+            <!-- 过滤掉改级以下别的日志, 线上建议 WARN -->
             <level>INFO</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 日志路径, 根据实际情况修改 -->
-            <fileNamePattern>@log.path@/${groupId}/${artifactId}-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 最多保留30天 -->
-            <maxHistory>30</maxHistory>
+            <fileNamePattern>@log.path@/@project.groupId@/@project.artifactId@-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- 最多保留天数 -->
+            <maxHistory>60</maxHistory>
         </rollingPolicy>
     </appender>
 

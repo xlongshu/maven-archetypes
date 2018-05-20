@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.xlongshu.maven</groupId>
         <artifactId>javaweb-starter</artifactId>
-        <version>1.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <groupId>${groupId}</groupId>
@@ -16,7 +16,7 @@
     <name>${artifactId} Maven Webapp</name>
 
     <properties>
-        <jdk.version>1.7</jdk.version>
+        <java.version>1.7</java.version>
         <skipTests>true</skipTests>
 
         <!-- servlet/jsp/EL (3.0/2.2/2.2),(3.1/2.3/3.0) -->
@@ -24,7 +24,6 @@
         <servlet-api.version>3.1.0</servlet-api.version>
         <jsp-api.version>2.3.1</jsp-api.version>
         <el-api.version>3.0.0</el-api.version>
-        <jetty.version>9.2.20.v20161216</jetty.version>
 
         <server.port>8080</server.port>
         <log.level>DEBUG</log.level>
@@ -36,8 +35,8 @@
         <!-- <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-        </dependency> -->
-        <!-- <dependency>
+        </dependency>
+        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency> -->

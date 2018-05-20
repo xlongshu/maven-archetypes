@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.xlongshu.maven</groupId>
         <artifactId>starter-dependencies</artifactId>
-        <version>1.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <groupId>${groupId}</groupId>
@@ -17,7 +17,7 @@
 
     <properties>
         <webAppSourceDir>${basedir}/src/main/webapp</webAppSourceDir>
-        <jdk.version>1.6</jdk.version>
+        <java.version>1.6</java.version>
         <skipTests>true</skipTests>
 
         <!-- servlet/jsp/EL (2.4/2.0/?)(2.5/2.1/2.1) -->
@@ -47,14 +47,17 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.el</groupId>
             <artifactId>el-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -74,8 +77,8 @@
         <!-- <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-        </dependency> -->
-        <!-- <dependency>
+        </dependency>
+        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency> -->

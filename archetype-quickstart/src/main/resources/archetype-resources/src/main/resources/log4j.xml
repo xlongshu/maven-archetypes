@@ -13,7 +13,7 @@
         <param name="Threshold" value="INFO" />
         <param name="DataPattern" value="'.'yyyy-MM-dd'.log'" />
         <!-- 日志文件路径 -->
-        <param name="File" value="@log.path@/${groupId}/${artifactId}.log" />
+        <param name="File" value="@log.path@/@project.groupId@/@project.artifactId@.log" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="[%-5p][%-d{HH:mm:ss.SSS}] [%t] %n%l%n%m%n" />
         </layout>
